@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Blogs</title>
 </head>
 <body>
-    <h1>Spring</h1>
-    
+    <table>
+    <h1>記事一覧</h1>
+    <tr th:each="blog : ${blogs}">
+      <td th:text="${blog.title}">タイトル</td>
+      <td th:text="${blog.notes}">メモ</td>
+    </tr>
+    </table>
 </body>
 </html>

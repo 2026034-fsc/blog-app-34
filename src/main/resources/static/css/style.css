@@ -1,0 +1,230 @@
+body {
+    font-family: "Meiryo", "MS PGothic", sans-serif;
+    background-color: #f4f5f7; 
+    margin: 0;
+    padding-top: 90px; 
+}
+
+h1 {
+    text-align: center;
+    color: #2d3748;
+    margin-bottom: 30px;
+}
+
+
+/* ==========================================
+   2. 共通ナビゲーション（ヘッダー）のスタイル
+   ========================================== */
+.site-header {
+    position: fixed;     /* 画面の上部に常に固定する */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #ffffff; /* 白いバー */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* 下側に薄い影をつける */
+    display: flex;
+    justify-content: space-between; /* ロゴを左端、ボタンを右端に離す */
+    align-items: center;            /* 上下の中央に揃える */
+    padding: 0 40px;
+    box-sizing: border-box;
+    z-index: 1000;       /* 一番手前に表示させる */
+}
+
+/* 右側のボタンエリアを横並びにする */
+.header-nav {
+    display: flex;
+    gap: 20px; /* ボタンとボタンの間の隙間 */
+    align-items: center;
+}
+
+/* 共通のボタン基本設定（下線を消して文字色を整える） */
+.btn-nav {
+    text-decoration: none;
+    color: #4a5568;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.btn-nav:hover {
+    color: #000000; /* マウスを乗せたら文字を黒くする */
+}
+
+/* 「投稿」ボタンだけ青いボタンにする */
+.btn-post {
+    background-color: #3182ce; /* さわやかな青 */
+    color: #ffffff !important; /* 文字は絶対白 */
+    padding: 8px 18px;
+    border-radius: 6px;        /* 角を少し丸くする */
+    transition: background-color 0.2s; /* 色の変化を滑らかに */
+}
+
+.btn-post:hover {
+    background-color: #2b6cb0; /* マウスを乗せたら少し濃い青にする */
+}
+
+
+/* ==========================================
+   3. ブログ一覧（カード型）のスタイル
+   ========================================== */
+/* カードを表示する中央の枠 */
+.blog-container {
+    width: 800px;     /* パソコンで見やすいように幅を固定 */
+    margin: 0 auto;   /* 画面の真ん中に配置する */
+    padding-bottom: 40px;
+}
+
+/* ブログカード本体 */
+.blog-card {
+    display: block;   /* 四角い枠全体をクリックできるようにする */
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px; /* 角を少し丸くする */
+    padding: 24px;
+    margin-bottom: 16px;
+    text-decoration: none; /* リンクの下線を消す */
+    color: #2d3748;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+/* カードにマウスを乗せたときの反応 */
+.blog-card:hover {
+    background-color: #f7fafc; /* 背景をほんのり明るく */
+    border-color: #cbd5e0;     /* 枠線を少し濃く */
+}
+
+/* カードの中のタイトル */
+.blog-card h2 {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+    color: #1a202c;
+}
+
+/* カードの中のメモ（本文） */
+.blog-card p {
+    margin: 0;
+    font-size: 14px;
+    color: #718096; /* メモは少し薄いグレーにして見やすく */
+    line-height: 1.6; /* 行間をあけて読みやすく */
+}
+
+/* ==========================================
+   4. 新規投稿画面（フォーム）のスタイル
+   ========================================== */
+/* フォーム全体を囲む白いボックス */
+.form-box {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+/* 入力項目ごとの縦の並び */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* 「タイトル」「本文」というラベル文字 */
+.form-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #4a5568;
+    font-size: 14px;
+}
+
+/* 入力枠（inputとtextarea）の共通デザイン */
+.form-input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #cbd5e0;
+    border-radius: 6px;
+    box-sizing: border-box; /* 幅100%からはみ出さないようにする */
+    background-color: #fff;
+    transition: border-color 0.2s;
+}
+
+/* 入力枠をクリックしたとき（フォーカス時）の反応 */
+.form-input:focus {
+    outline: none;
+    border-color: #3182ce; /* 枠線をヘッダーと同じ青にする */
+}
+
+/* 本文入力欄（textarea）の高さ設定 */
+.form-textarea {
+    resize: vertical; /* ユーザーが縦方向にだけサイズを伸ばせるようにする */
+    font-family: inherit; /* 文字の形を他と統一する */
+}
+
+/* 保存ボタンを置くエリア（右寄せにする） */
+.form-actions {
+    text-align: right;
+    margin-top: 25px;
+}
+
+/* 保存ボタン専用の微調整 */
+.btn-submit {
+    border: none;
+    font-size: 16px;
+    cursor: pointer; /* マウスを乗せたら指のマークにする */
+    display: inline-block;
+}
+
+/* ==========================================
+   5. 記事詳細ページのスタイル
+   ========================================== */
+/* 詳細記事を包む白いボックス */
+.detail-box {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 40px; /* じっくり読めるように少し余白を広めに */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    margin-top: 20px;
+}
+
+/* 詳細ページのタイトル（左寄せにして大きく） */
+.detail-title {
+    text-align: left; /* 中央寄せではなく左寄せにする */
+    font-size: 28px;
+    color: #1a202c;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e2e8f0; /* タイトルの下に区切り線を入れる */
+}
+
+/* 詳細ページの本文（メモ） */
+.detail-notes {
+    font-size: 16px;
+    color: #2d3748;
+    line-height: 1.8; /* 行間を広げて長文でも読みやすくする */
+    white-space: pre-wrap; /* メモ内で改行したときに、画面でも正しく改行されるようにする */
+}
+
+/* 下部のボタンエリア */
+.detail-actions {
+    margin-top: 20px;
+    text-align: left;
+}
+
+/* 「記事一覧に戻る」リンクの見た目 */
+.btn-back {
+    display: inline-block;
+    text-decoration: none;
+    color: #4a5568;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* 戻るボタンにマウスを乗せたとき */
+.btn-back:hover {
+    background-color: #e2e8f0; /* 背景をほんのりグレーにする */
+    color: #1a202c;
+}

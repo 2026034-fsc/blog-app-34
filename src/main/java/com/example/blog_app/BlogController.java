@@ -3,7 +3,9 @@ import java.util.Optional;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class BlogController {
@@ -29,4 +31,19 @@ public class BlogController {
         model.addAttribute("blog", blogOpt.get());
         return "blog/detail";
     }
+
+    @GetMapping("/blog/new")
+    public String blognew() {
+        return "blog/new";
+    }
+
+
+    @PostMapping("/blogs")
+    public String create(@ModelAttribute BlogForm blogForm) {
+        blogService.add(blogForm);
+        
+        return "redirect:/blogs";
+    }
+
+
 }

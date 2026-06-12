@@ -3,15 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
     <title>All Blogs</title>
 </head>
 <body>
-    <table>
+    <header th:replace="~{fragments/layout::header}"></header>
+
     <h1>記事一覧</h1>
-    <tr th:each="blog : ${blogs}">
-      <td th:text="${blog.title}">タイトル</td>
-      <td th:text="${blog.notes}">メモ</td>
-    </tr>
-    </table>
+
+    <div class="blog-container">
+        <a th:each="blog : ${blogs}" th:href="@{/blog/{id}(id=${blog.id})}" class="blog-card">
+            
+            <h2 th:text="${blog.title}">記事のタイトル</h2>
+            <!-- 100文字より多ければ切り出し、少なければそのまま表示する（null対策込み） -->
+            <p th:text="${blog.notes != null} ? (${#strings.length(blog.notes) > 100} ? ${#strings.substring(blog.notes, 0, 100)} : ${blog.notes}) : ''"></p>
+
+            <!-- <p th:text="${#strings.substring(blog.notes, 0, 100)}"></p> -->
+            <!-- <p th:text="${blog.notes}">記事のメモ・概要がここに表示されます。</p> -->
+        </a>
+    </div>
+    
 </body>
 </html>

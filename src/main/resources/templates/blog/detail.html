@@ -10,6 +10,6 @@
     <header th:replace="fragments/layout::header"></header>
     <h1 th:text="${blog.title}">ポラーノの広場</h1>
     <p th:text="${blog.notes}">メモ</p>
-    <!-- <a href="@{/blog/detail{id}(id=${blog.id})}"></a> -->
+    <a href="@{/blog/detail{id}(id=${blog.id})}"></a>
 </body>
 </html>
